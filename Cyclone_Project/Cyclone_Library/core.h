@@ -310,9 +310,8 @@ namespace cyclone {
         real scalarProduct(const Vector3 &vector) const
         {
 
-            Vector3;
-            double scalar = (x * x + y * y + z * z);
-            return 0;
+            double scalar = (vector.x * x + vector.y * y + vector.z * z);
+            return scalar;
         }
 
         /**
@@ -329,6 +328,9 @@ namespace cyclone {
          */
         void addScaledVector(const Vector3& vector, real scale)
         {
+            x = x + (vector.x * scale);
+            y = y + (vector.y * scale);
+            z = z + (vector.z * scale);
 
         }
 

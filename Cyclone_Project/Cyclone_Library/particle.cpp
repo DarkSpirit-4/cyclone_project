@@ -29,10 +29,6 @@ void Particle::integrate(real duration)
 
     assert(duration > 0.0);
 
-    
-
-
-
 
 
 
