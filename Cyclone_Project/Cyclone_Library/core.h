@@ -309,6 +309,9 @@ namespace cyclone {
          */
         real scalarProduct(const Vector3 &vector) const
         {
+
+            Vector3;
+            double scalar = (x * x + y * y + z * z);
             return 0;
         }
 
@@ -332,13 +335,15 @@ namespace cyclone {
         /** Gets the magnitude of this vector. */
         real magnitude() const
         {
-            return 0;
+            double magnitude = sqrt(x * x + y * y + z * z);
+            return magnitude;
         }
 
         /** Gets the squared magnitude of this vector. */
         real squareMagnitude() const
         {
-            return 0;
+            double magnitudeSquare = x * x + y * y + z * z;
+            return magnitudeSquare;
         }
 
         /** Limits the size of the vector to the given maximum. */
@@ -356,6 +361,11 @@ namespace cyclone {
         /** Turns a non-zero vector into a vector of unit length. */
         void normalise()
         {
+            double magni = magnitude();
+
+            x = x / magni;
+            y = y / magni;
+            z = z / magni;
 
         }
 

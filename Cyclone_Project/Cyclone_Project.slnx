@@ -7,4 +7,5 @@
   <Project Path="Bridge_Demo/Bridge_Demo.vcxproj" Id="fc6af771-b072-477a-a0a8-d684124b6474" />
   <Project Path="Cyclone_Library/Cyclone_Library.vcxproj" Id="915c487d-b0de-4bf6-9667-3b03632e8996" />
   <Project Path="Fireworks_Demo/Fireworks_Demo.vcxproj" Id="d186fc6b-936d-49b7-a47d-05a0c29f7339" />
+  <Project Path="Sample-Test1/Sample-Test1.vcxproj" Id="66c496d1-fd5f-42d1-b849-e3864d3581c7" />
 </Solution>
