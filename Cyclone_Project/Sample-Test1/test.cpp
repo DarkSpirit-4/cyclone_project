@@ -32,6 +32,40 @@ TEST(TestCaseName3, TestName3) {
 	EXPECT_EQ(vector3_1.z, 5);
 }
 
+TEST(TestParticle, TestPos) {
+	cyclone::Particle particle;
 
+	particle.setMass(1.0f);
+	particle.setPosition(0, 0, 0);
+	particle.setVelocity(2, 0, 0);
+	particle.setAcceleration(0, 0, 0);
+	particle.setDamping(1);
+	particle.integrate(0.5);
+	cyclone::Vector3 position = particle.getPosition();
+	cyclone::Vector3 velocity = particle.getVelocity();
 
+	EXPECT_EQ(position.x, 1.0f);
+	EXPECT_EQ(position.y, 0.0f);
+	EXPECT_EQ(position.z, 0.0f);
 
+	EXPECT_EQ(velocity.x, 2.0f);
+	EXPECT_EQ(velocity.y, 0.0f);
+	EXPECT_EQ(velocity.z, 0.0f);
+}
+
+TEST(TestParticle1, TestAcc) {
+	cyclone::Particle particle;
+
+	particle.setMass(1.0);
+	particle.setPosition(0, 0, 0);
+	particle.setVelocity(2, 0, 0);
+	particle.setAcceleration(0, -10, 0);
+	particle.setDamping(1);
+	particle.integrate(0.5);
+	cyclone::Vector3 position = particle.getPosition();
+	cyclone::Vector3 velocity = particle.getVelocity();
+
+	EXPECT_EQ(velocity.x, 2.0f);
+	EXPECT_EQ(velocity.y, -5.0f);
+	EXPECT_EQ(velocity.z, 0.0f);
+}

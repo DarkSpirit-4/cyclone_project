@@ -12,6 +12,7 @@
 
 #include <assert.h>
 #include "particle.h"
+#include <cmath>
 
 using namespace cyclone;
 
@@ -29,9 +30,13 @@ void Particle::integrate(real duration)
 
     assert(duration > 0.0);
 
+    position = position + velocity * duration;
 
+    acceleration = acceleration + forceAccum * inverseMass;
 
+    velocity = velocity + acceleration * duration;
 
+    velocity = velocity * pow(damping, duration);
 
     // Clear the forces.
     clearAccumulator();
