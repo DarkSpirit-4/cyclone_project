@@ -310,7 +310,7 @@ void FireworksDemo::initFireworkRules()
         3.0f, 5.0f,
         cyclone::Vector3(-5, 20, -5),
         cyclone::Vector3(5, 25, 5),
-        0.8f
+        0.5f
     );
 
     rules[6].init(1);

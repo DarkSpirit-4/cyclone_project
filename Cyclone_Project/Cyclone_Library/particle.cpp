@@ -157,4 +157,5 @@ void Particle::clearAccumulator()
 
 void Particle::addForce(const Vector3 &force)
 {
+    forceAccum += force;
 }

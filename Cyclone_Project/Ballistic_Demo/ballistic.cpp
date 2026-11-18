@@ -75,6 +75,7 @@ class BallisticDemo : public Application
     /** Holds the current shot type. */
     ShotType currentShotType;
 
+    cyclone::ParticleGravity partgrav;
     /** Dispatches a round. */
     void fire();
 
@@ -100,7 +101,7 @@ public:
 
 // Method definitions
 BallisticDemo::BallisticDemo()
-: currentShotType(LASER)
+    : currentShotType(LASER), partgrav(cyclone::Vector3::GRAVITY)
 {
     // Make all shots unused
     for (AmmoRound *shot = ammo; shot < ammo+ammoRounds; shot++)
@@ -157,13 +158,16 @@ void BallisticDemo::fire()
         break;
 
     }
-    
+
 
     shot->particle.setPosition(0.0f, 1.5f, 0.0f);
     shot->type = currentShotType;
     shot->startTime = TimingData::get().frameNumber;
 
+    shot->particle.setAcceleration(cyclone::Vector3());
 
+    shot->particle.clearAccumulator();
+        
 }
 
 void BallisticDemo::update()
@@ -176,6 +180,7 @@ void BallisticDemo::update()
     {
         if (shot->type != UNUSED)
         {
+            partgrav.updateForce(&shot->particle, duration);
             shot->particle.integrate(duration);
 
             float age = (TimingData::get().frameNumber - shot->startTime)
